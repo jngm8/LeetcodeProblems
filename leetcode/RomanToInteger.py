@@ -37,9 +37,3 @@ print(romanToInt("MCMXCIV"))
 
 #Time:74.19%
 #Memory:30.7%
-
-    
-
-    
-
-    
