@@ -10,7 +10,10 @@ for i in range(casos[1]):
 
     while cuenta > 0:
 
-        if 
+        pass
+
+
+
 
 
 
