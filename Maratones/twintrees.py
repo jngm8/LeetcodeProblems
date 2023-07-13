@@ -1,58 +1,46 @@
-def create_node(value, secondary=False):
-    """
-    Creates a new node for the twin trees with the given value.
-    Returns the new node.
-    """
-    return {'value': value, 'left': None, 'right': None, 'secondary': secondary}
+def crear_nodo(valor):
 
-def insert_node_primary(root, value):
-    """
-    Inserts a node with the given value into the primary twin tree.
-    """
-    if root is None:
-        return create_node(value)
+    return {'valor': valor, 'izq': None, 'der': None}
 
-    if value < root['value']:
-        root['left'] = insert_node_primary(root['left'], value)
+def arbol_primario(raiz, valor):
+
+    if raiz is None:
+        return crear_nodo(valor)
+
+    if valor < raiz['valor']:
+        raiz['izq'] = arbol_primario(raiz['izq'], valor)
     else:
-        root['right'] = insert_node_primary(root['right'], value)
+        raiz['der'] = arbol_primario(raiz['der'], valor)
 
-    return root
+    return raiz
 
-def insert_node_secondary(root, value):
-    """
-    Inserts a node with the given value into the secondary twin tree.
-    """
-    if root is None:
-        return create_node(value, secondary=True)
+def arbol_secundario(raiz, valor):
 
-    if value > root['value']:
-        root['left'] = insert_node_secondary(root['left'], value)
+    if raiz is None:
+        return crear_nodo(valor)
+
+    if valor < raiz['valor']:
+        raiz['izq'] = arbol_secundario(raiz['izq'], valor)
     else:
-        root['right'] = insert_node_secondary(root['right'], value)
+        raiz['der'] = arbol_secundario(raiz['der'], valor)
 
-    return root
+    return raiz
 
 
-def create_twin_trees(arr):
-    """
-    Creates two twin trees from the given array.
-    Returns a dictionary containing the root nodes of both trees.
-    """
+def twin_trees(arr):
+
     if not arr:
-        return {'root_primary': None, 'root_secondary': None}
+        return {'raiz_primario': None, 'raiz_secundario': None}
 
-    # Sort the array to create the primary tree
-    arr.sort()
-    root_primary = create_node(arr[0])
-    for value in arr[1:]:
-        insert_node_primary(root_primary, value)
+    raiz_primario = crear_nodo(arr[0])
+    for valor in arr[1:]:
+        arbol_primario(raiz_primario, valor)
 
-    # Create the secondary tree by reversing the order of the array
     arr.reverse()
-    root_secondary = create_node(arr[0])
-    for value in arr[1:]:
-        insert_node_secondary(root_secondary, value)
+    raiz_secundario = crear_nodo(arr[0])
+    for valor in arr[1:]:
+        arbol_secundario(raiz_secundario, valor)
 
-    return {'root_primary': root_primary, 'root_secondary': root_secondary}
-print(create_twin_trees([4,6,9,2,1,3,5,8]))
+    return {'raiz_primario': raiz_primario, 'raiz_secundario': raiz_secundario}
+
+print(twin_trees([4,6,9,2,1,3,5,8]))
