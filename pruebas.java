@@ -31,46 +31,46 @@
 
 
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
-class Solution {
-    public int rumor(String cantidades,String gold) {
+// class Solution {
+//     public int rumor(String cantidades,String gold) {
 
-        String[] sociales = new String[cantidades.length()];
-        for (int i = 0; i < cantidades.length(); i++) {
+//         String[] sociales = new String[cantidades.length()];
+//         for (int i = 0; i < cantidades.length(); i++) {
         
 
-            Scanner scanner = new Scanner(System.in);
-            String friends = scanner.nextLine();
-            friends.trim().split("\\s+");
-            sociales.add(friends[1]);
-            scanner.close();
-        }
-        suma = 0
-        for i in range(1,int(cantidades[0])+1):
-            if str(i) not in sociales:
-                suma += int(tokenized_gold[int(i)-1])
+//             Scanner scanner = new Scanner(System.in);
+//             String friends = scanner.nextLine();
+//             friends.trim().split("\\s+");
+//             sociales.add(friends[1]);
+//             scanner.close();
+//         }
+//         suma = 0
+//         for i in range(1,int(cantidades[0])+1):
+//             if str(i) not in sociales:
+//                 suma += int(tokenized_gold[int(i)-1])
 
-        return suma;
-    }
+//         return suma;
+//     }
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+//     public static void main(String[] args) {
+//         Solution solution = new Solution();
 
-        Scanner scanner = new Scanner(System.in);
-        String cantidades = scanner.nextLine();
-        cantidades.trim().split("\\s+");
+//         Scanner scanner = new Scanner(System.in);
+//         String cantidades = scanner.nextLine();
+//         cantidades.trim().split("\\s+");
 
-        Scanner scanner2 = new Scanner(System.in);
-        String gold = scanner2.nextLine();
-        gold.trim().split("\\s+");
+//         Scanner scanner2 = new Scanner(System.in);
+//         String gold = scanner2.nextLine();
+//         gold.trim().split("\\s+");
 
-        int result = solution.rumor(cantidades,gold);
+//         int result = solution.rumor(cantidades,gold);
         
-        scanner.close();
-        scanner2.close();
+//         scanner.close();
+//         scanner2.close();
 
-        System.out.println(result);
-    }
+//         System.out.println(result);
+//     }
     
-}
+// }
